@@ -1,0 +1,14 @@
+{
+  "name": "forblune-mellowroom",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "python3 -m http.server 4181",
+    "test:smoke": "node qa/smoke.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "wrangler": "^4.30.0"
+  }
+}

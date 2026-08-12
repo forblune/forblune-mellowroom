@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "forblune-mellowroom",
+  "compatibility_date": "2026-08-13",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "mellowroom.forblune.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
