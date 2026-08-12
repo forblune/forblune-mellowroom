@@ -87,6 +87,23 @@ h1 { max-width: 700px; margin: 0; font-size: clamp(3.25rem, 6.4vw, 6.5rem); line
 .trust-strip ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: flex-end; gap: 2.5rem; font-size: .78rem; }
 .trust-strip li::before { content: "✓"; margin-right: .55rem; color: #c5d4bd; }
 
+.case-study {
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1rem, 6vw, 7rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+.case-study__intro { align-self: start; position: sticky; top: 120px; }
+.case-study__intro h2 { max-width: 690px; font-size: clamp(2.6rem, 4.7vw, 4.9rem); }
+.case-study__intro > p:last-child { max-width: 620px; margin: 1.6rem 0 0; color: var(--muted); line-height: 1.8; }
+.case-study__details { border-top: 1px solid var(--line); }
+.case-study__details article { display: grid; grid-template-columns: 46px 1fr; gap: 1.25rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+.case-study__details article > span { color: var(--accent); font: italic 1.05rem var(--serif); }
+.case-study__details h3 { margin: 0 0 .55rem; font: 500 1.45rem var(--serif); }
+.case-study__details p { margin: 0; color: var(--muted); line-height: 1.72; }
+
 .section { padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 6vw, 7rem); border-bottom: 1px solid var(--line); }
 .section-heading { display: grid; grid-template-columns: 1fr minmax(280px, 430px); gap: 3rem; align-items: end; margin-bottom: 4rem; }
 h2 { margin: 0; font-size: clamp(2.7rem, 5vw, 5.25rem); line-height: 1; }
@@ -215,6 +232,8 @@ h2 { margin: 0; font-size: clamp(2.7rem, 5vw, 5.25rem); line-height: 1; }
   .trust-strip { grid-template-columns: 1fr; }
   .trust-strip ul { justify-content: flex-start; flex-wrap: wrap; }
   .section--visit, .section--operations { grid-template-columns: 1fr; }
+  .case-study { grid-template-columns: 1fr; }
+  .case-study__intro { position: static; }
   .visit-story { position: static; }
 }
 
@@ -230,6 +249,8 @@ h2 { margin: 0; font-size: clamp(2.7rem, 5vw, 5.25rem); line-height: 1; }
   .hero__visual img { object-position: 64% center; }
   .trust-strip { gap: 1rem; }
   .trust-strip ul { display: grid; gap: .65rem; }
+  .case-study { gap: 2.5rem; padding: 4.5rem 1rem; }
+  .case-study__details article { grid-template-columns: 36px 1fr; gap: .8rem; }
   .section { padding: 4.5rem 1rem; }
   .section-heading { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
   h2 { font-size: clamp(2.7rem, 14vw, 4rem); }

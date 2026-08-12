@@ -37,6 +37,7 @@ try {
       language: document.documentElement.lang,
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       title: document.querySelector("h1")?.textContent?.replace(/\s+/g, " ").trim(),
+      caseStudy: document.querySelector("#case-study")?.textContent?.replace(/\s+/g, " ").trim(),
     }));
 
     await page.locator('[data-language-option="en"]').click();
@@ -44,6 +45,7 @@ try {
       language: document.documentElement.lang,
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       title: document.querySelector("h1")?.textContent?.replace(/\s+/g, " ").trim(),
+      caseStudy: document.querySelector("#case-study")?.textContent?.replace(/\s+/g, " ").trim(),
     }));
 
     await page.locator('[data-booking-service="calm"]').click();
@@ -86,6 +88,8 @@ try {
 const failures = results.filter((result) =>
   result.initial.language !== "ko" ||
   result.english.language !== "en" ||
+  !result.initial.caseStudy?.includes("디자인 판단") ||
+  !result.english.caseStudy?.includes("Design decision") ||
   result.initial.overflow > 0 ||
   result.english.overflow > 0 ||
   result.confirmation.overflow > 0 ||

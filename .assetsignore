@@ -4,6 +4,7 @@
 node_modules/
 docs/
 qa/
+platform-assets/
 .gitignore
 .assetsignore
 README.md
