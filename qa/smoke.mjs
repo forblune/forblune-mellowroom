@@ -1,6 +1,7 @@
 import { chromium } from "playwright";
 
 const baseURL = process.env.BASE_URL || "http://127.0.0.1:4181";
+const baseOrigin = new URL(baseURL).origin;
 const viewports = [
   { name: "desktop", width: 1440, height: 1000 },
   { name: "tablet", width: 768, height: 1024 },
@@ -18,16 +19,17 @@ try {
     const context = await browser.newContext({ viewport });
     const page = await context.newPage();
     const consoleErrors = [];
-    const externalRequests = [];
+    const unexpectedExternalRequests = [];
+    const infrastructureRequests = [];
 
     page.on("console", (message) => {
       if (message.type() === "error") consoleErrors.push(message.text());
     });
     page.on("request", (request) => {
       const requestURL = new URL(request.url());
-      if (!requestURL.hostname.includes("127.0.0.1") && requestURL.protocol !== "data:") {
-        externalRequests.push(request.url());
-      }
+      if (requestURL.protocol === "data:" || requestURL.origin === baseOrigin) return;
+      if (requestURL.hostname === "static.cloudflareinsights.com") infrastructureRequests.push(request.url());
+      else unexpectedExternalRequests.push(request.url());
     });
 
     await page.goto(baseURL, { waitUntil: "networkidle" });
@@ -72,7 +74,8 @@ try {
       validation,
       confirmation,
       consoleErrors,
-      externalRequests: [...new Set(externalRequests)],
+      infrastructureRequests: [...new Set(infrastructureRequests)],
+      unexpectedExternalRequests: [...new Set(unexpectedExternalRequests)],
     });
     await context.close();
   }
@@ -90,7 +93,7 @@ const failures = results.filter((result) =>
   !result.validation.name ||
   !result.validation.contact ||
   result.consoleErrors.length > 0 ||
-  result.externalRequests.length > 0
+  result.unexpectedExternalRequests.length > 0
 );
 
 console.log(JSON.stringify({ baseURL, pass: failures.length === 0, results }, null, 2));
