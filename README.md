@@ -19,9 +19,9 @@ A bright, bilingual local-wellness booking and operations portfolio concept by F
 - Responsive behavior for desktop, tablet, and mobile.
 - Custom-domain deployment through Cloudflare Workers static assets.
 
-## Visual asset
+## Visual direction
 
-`assets/mellow-room-hero.jpg` is an original AI-generated concept image created for this portfolio. It does not show a real business location.
+The first viewport uses the working sample schedule instead of a generated or stock location photograph. This keeps the fictional-service boundary visible and makes the booking interaction, not an invented venue, the proof of work.
 
 ## Local preview
 
