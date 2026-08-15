@@ -50,13 +50,42 @@
             <div><dt data-i18n="factThreeLabel">위치</dt><dd data-i18n="factThreeValue">서울 성수 · 예약제</dd></div>
           </dl>
         </div>
-        <figure class="hero__visual">
-          <img src="./assets/mellow-room-hero.jpg" alt="햇살이 들어오는 밝은 웰니스 상담 공간" data-i18n-alt="heroAlt" />
-          <figcaption>
-            <span data-i18n="openToday">오늘 예약 가능</span>
-            <strong data-i18n="nextSlot">다음 시간 16:30</strong>
-          </figcaption>
-        </figure>
+        <aside class="hero__schedule" aria-labelledby="hero-schedule-title">
+          <div class="schedule-window">
+            <header class="schedule-window__header">
+              <div>
+                <p data-i18n="scheduleEyebrow">이번 주 예약표 · 예시</p>
+                <h2 id="hero-schedule-title" data-i18n="scheduleTitle">가능한 시간을 먼저 확인하세요.</h2>
+              </div>
+              <span class="schedule-window__legend" data-i18n="scheduleLegend">KST</span>
+            </header>
+            <div class="schedule-window__day">
+              <span data-i18n="scheduleDay">월요일</span>
+              <strong data-i18n="scheduleDate">8월 17일</strong>
+            </div>
+            <ol class="schedule-window__slots">
+              <li>
+                <time datetime="10:30">10:30</time>
+                <span data-i18n="slotOneProgram">고요한 시작 · 50분</span>
+                <strong class="slot-status slot-status--closed" data-i18n="slotClosed">마감</strong>
+              </li>
+              <li>
+                <time datetime="14:00">14:00</time>
+                <span data-i18n="slotTwoProgram">깊은 회복 · 80분</span>
+                <strong class="slot-status" data-i18n="slotAsk">문의</strong>
+              </li>
+              <li class="is-next">
+                <time datetime="16:30">16:30</time>
+                <span data-i18n="slotThreeProgram">고요한 시작 · 50분</span>
+                <strong class="slot-status slot-status--open" data-i18n="slotOpen">예약 가능</strong>
+              </li>
+            </ol>
+            <footer>
+              <span data-i18n="scheduleNote">포트폴리오용 샘플 일정이며 실제 예약은 발생하지 않습니다.</span>
+              <a href="#booking" data-i18n="scheduleAction">예약 흐름 보기 <span aria-hidden="true">→</span></a>
+            </footer>
+          </div>
+        </aside>
       </section>
 
       <section class="trust-strip" aria-label="Service principles">
