@@ -68,7 +68,7 @@ button { color: inherit; }
 .hero { min-height: calc(100svh - 76px); display: grid; grid-template-columns: minmax(0, .92fr) minmax(500px, 1.08fr); border-bottom: 1px solid var(--line); }
 .hero__content { padding: clamp(4rem, 8vw, 8.5rem) clamp(1.5rem, 7vw, 8rem); display: flex; flex-direction: column; justify-content: center; }
 .eyebrow { margin: 0 0 1.2rem; color: var(--sage-strong); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 800; }
-h1, h2, h3, p { overflow-wrap: anywhere; }
+h1, h2, h3, p { overflow-wrap: break-word; }   /* anywhere 는 keep-all 을 무시하고 어절을 끊는다 */
 h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
 h1 { max-width: 700px; margin: 0; font-size: clamp(3.25rem, 6.4vw, 6.5rem); line-height: .96; }
 .hero__lead { max-width: 600px; margin: 2rem 0 0; color: var(--muted); font-size: clamp(1.05rem, 1.5vw, 1.24rem); line-height: 1.75; }
@@ -304,3 +304,7 @@ h2 { margin: 0; font-size: clamp(2.7rem, 5vw, 5.25rem); line-height: 1; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* 한글 어절 단위 줄바꿈 — 단어 중간에서 줄이 바뀌면 교정 안 된 티가 난다.
+   overflow-wrap 은 끊을 수 없는 긴 토큰(URL 등)이 넘칠 때의 안전장치. */
+body{word-break:keep-all;overflow-wrap:break-word}
