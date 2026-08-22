@@ -6,6 +6,15 @@
     <meta name="theme-color" content="#f7f4ed" />
     <meta name="description" content="밝은 로컬 웰니스 서비스와 예약 흐름을 보여주는 Forblune의 한·영 전환 콘셉트 포트폴리오입니다." />
     <title>Mellow Room — Bilingual Wellness Booking Demo</title>
+    <link rel="canonical" href="https://mellowroom.forblune.com/" />
+    <meta property="og:title" content="Mellow Room — 한·영 예약 흐름 데모" />
+    <meta property="og:description" content="밝은 로컬 웰니스 서비스와 4단계 예약 흐름을 보여주는 Forblune의 콘셉트 포트폴리오." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mellowroom.forblune.com/" />
+    <meta property="og:image" content="https://mellowroom.forblune.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2327312b'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='32' fill='%23f7f4ed'%3EM%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
@@ -225,11 +234,12 @@
 
           <form class="booking-panel" data-panel="3" hidden novalidate>
             <div class="panel-title-row"><div><h3 data-i18n="contactTitle">예약자 정보를 입력하세요</h3><p data-i18n="contactLead">확인에 필요한 최소 정보만 받습니다.</p></div><button class="back-button" type="button" data-back="2" data-i18n="back">이전</button></div>
+            <p class="req-note"><em class="req" aria-hidden="true">*</em> <span data-i18n="reqNote">표시는 필수 항목입니다</span></p>
             <div class="field-grid">
-              <label><span data-i18n="nameLabel">이름</span><input type="text" name="name" autocomplete="name" required maxlength="40" /><small class="field-error" data-error-for="name"></small></label>
-              <label><span data-i18n="contactLabel">연락처</span><input type="tel" name="contact" autocomplete="tel" required maxlength="30" placeholder="010-0000-0000" /><small class="field-error" data-error-for="contact"></small></label>
+              <label><span class="lbl"><span data-i18n="nameLabel">이름</span><em class="req" aria-hidden="true">*</em></span><input type="text" name="name" autocomplete="name" required maxlength="40" /><small class="field-error" data-error-for="name"></small></label>
+              <label><span class="lbl"><span data-i18n="contactLabel">연락처</span><em class="req" aria-hidden="true">*</em></span><input type="tel" name="contact" autocomplete="tel" required maxlength="30" placeholder="010-0000-0000" /><small class="field-error" data-error-for="contact"></small></label>
               <label class="field-full"><span data-i18n="noteLabel">미리 전할 내용 <small data-i18n="optional">선택</small></span><textarea name="note" rows="4" maxlength="300" data-i18n-placeholder="notePlaceholder" placeholder="불편한 자세나 피하고 싶은 활동을 알려주세요."></textarea></label>
-              <label class="consent field-full"><input type="checkbox" name="consent" required /><span data-i18n="consentLabel">예약 확인을 위한 정보 이용과 24시간 전 변경 정책을 확인했습니다.</span></label>
+              <label class="consent field-full"><input type="checkbox" name="consent" required /><span class="lbl"><span data-i18n="consentLabel">예약 확인을 위한 정보 이용과 24시간 전 변경 정책을 확인했습니다.</span><em class="req" aria-hidden="true">*</em></span></label>
             </div>
             <button class="button button--dark" type="submit" data-i18n="reviewBooking">예약 내용 검토</button>
           </form>
